@@ -1,20 +1,25 @@
 <template>
   <div class="app-bar"></div>
   <div class="nav-bar">
-    <div class="item-bar">Home</div>
-    <div class="item-bar">Character</div>
-    <div class="item-bar">Comic</div>
-    <div class="item-bar">Series</div>
-    <div class="item-bar">Events</div>
-    <div class="item-bar">Creators</div>
-    <div class="item-bar">Stories</div>
-    <div class="item-bar">About</div>
+    <div class="item-bar" @click="onClick('home')">Home</div>
+    <div class="item-bar" @click="onClick('characters')">Character</div>
+    <div class="item-bar" @click="onClick('comics')">Comic</div>
+    <div class="item-bar" @click="onClick('series')">Series</div>
+    <div class="item-bar" @click="onClick('events')">Events</div>
+    <div class="item-bar" @click="onClick('creators')">Creators</div>
+    <div class="item-bar" @click="onClick('stories')">Stories</div>
+    <div class="item-bar" @click="onClick('about')">About</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "AppBar",
+  methods: {
+    onClick(service) {
+      this.$router.push(`/${service}`);
+    },
+  },
 };
 </script>
 

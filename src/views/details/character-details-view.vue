@@ -7,7 +7,7 @@ import { getById } from "@/utils/marvel-api.js";
 // import CharacterList from "../components/character/characters-list";
 
 export default {
-  name: "CharacterView",
+  name: "CharacterDetailsView",
   props: ["id"],
   //   components: {
   //     CharacterList,

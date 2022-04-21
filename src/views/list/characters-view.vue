@@ -6,12 +6,12 @@
 
 <script>
 import { getAll } from "@/utils/marvel-api.js";
-import CharacterList from "../components/character/characters-list";
-import ActionBar from "../components/layout/action-bar";
-import PaginationBar from "../components/layout/pagination-bar";
+import CharacterList from "../../components/character/characters-list";
+import ActionBar from "../../components/layout/action-bar";
+import PaginationBar from "../../components/layout/pagination-bar";
 
 export default {
-  name: "HomeView",
+  name: "CharactersView",
   components: {
     CharacterList,
     ActionBar,
