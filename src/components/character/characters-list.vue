@@ -1,6 +1,11 @@
 <template>
   <div class="character-list">
-    <CharacterCard v-for="item in list" :key="item.id" :character="item" />
+    <CharacterCard
+      v-for="item in list"
+      :key="item.id"
+      :character="item"
+      :mode="mode"
+    />
   </div>
 </template>
 
@@ -13,6 +18,7 @@ export default {
   },
   props: {
     list: Array,
+    mode: String,
   },
 };
 </script>

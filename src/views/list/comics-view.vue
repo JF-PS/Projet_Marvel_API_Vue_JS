@@ -1,6 +1,6 @@
 <template>
   <ActionBar @onChange="handleChange" :params="params" />
-  <CharacterList :list="list" :mode="comics" />
+  <CharacterList :list="list" mode="comics" />
   <PaginationBar :total="total" :pages="params.limit" @onClick="handleChange" />
 </template>
 
