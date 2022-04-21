@@ -10,7 +10,7 @@
         />
       </div>
       <div class="item-action">
-        <select name="result per page" v-model="limit" class="field">
+        <select name="limit" v-model="limit" class="field">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
@@ -23,9 +23,6 @@
           <option value="-name">Name DESC</option>
           <option value="-modified">modified DESC</option>
         </select>
-      </div>
-      <div class="item-action">
-        <button v-on:click="onSubmit()" class="button">Next Page</button>
       </div>
     </div>
   </div>
@@ -43,8 +40,7 @@ export default {
   },
   methods: {
     onChange() {
-      console.log(this.orderBy);
-      this.$emit("onChange", this.nameStart, this.limit, this.orderBy);
+      this.$emit("onChange", this.nameStart, +this.limit, this.orderBy);
     },
   },
   watch: {
