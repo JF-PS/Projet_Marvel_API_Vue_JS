@@ -1,6 +1,13 @@
 <template>
   <div>
     <div class="pagination-bar">
+      <div class="arrow" v-if="switchBar > 0" @click="onClickUltimeBack">
+        <span class="material-symbols-outlined">
+          <span id="arrowMaxBack" class="material-symbols-outlined">
+            double_arrow
+          </span>
+        </span>
+      </div>
       <div class="arrow" v-if="switchBar > 0">
         <span id="back" class="material-symbols-outlined" @click="onClickBack">
           arrow_back_ios
@@ -16,9 +23,16 @@
       >
         {{ n + switchBar }}
       </div>
-      <div class="arrow">
+      <div class="arrow" v-if="isNext === false">
         <span class="material-symbols-outlined" @click="onClickNext">
           arrow_forward_ios
+        </span>
+      </div>
+      <div class="arrow" v-if="isNext === false">
+        <span class="material-symbols-outlined">
+          <span class="material-symbols-outlined" @click="onClickUltimeNext">
+            double_arrow
+          </span>
         </span>
       </div>
     </div>
@@ -30,7 +44,6 @@ export default {
   name: "PaginationBar",
   data() {
     return {
-      limit: 5,
       switchBar: 0,
       currentRow: 1,
     };
@@ -39,20 +52,56 @@ export default {
     total: Number,
     pages: Number,
   },
+  computed: {
+    limit() {
+      let myLimit = 5;
+
+      for (let i = myLimit; i >= 1; --i) {
+        if (i * this.pages > this.total) {
+          myLimit = i;
+        }
+      }
+
+      return myLimit;
+    },
+    isNext() {
+      let stop = false;
+      console.log(this.limit);
+      if (this.limit < 5) stop = true;
+      return stop;
+    },
+  },
   methods: {
     onClick(n) {
       this.currentRow = n;
-      const offset = n === 1 ? 0 : n * this.pages - this.pages;
-      this.$emit("onClick", "offset", offset + this.switchBar * this.pages);
+      this.onOffsetChange();
     },
     onClickNext() {
+      if (this.switchBar + 1 <= this.total) {
+        this.switchBar++;
+        this.onOffsetChange();
+      }
+    },
+    onClickUltimeNext() {
+      this.currentRow = 5;
+      this.switchBar = parseInt(this.total / 20) - this.limit;
+      this.$emit("onClick", "offset", this.total - this.pages);
+    },
+    onClickUltimeBack() {
       this.currentRow = 1;
-      if (this.switchBar + this.limit <= this.total)
-        this.switchBar += this.limit;
+      this.switchBar = 0;
+      this.$emit("onClick", "offset", 0);
     },
     onClickBack() {
-      this.currentRow = 1;
-      if (this.switchBar - this.limit >= 0) this.switchBar -= this.limit;
+      if (this.switchBar - 1 >= 0) {
+        this.switchBar--;
+        this.onOffsetChange();
+      }
+    },
+    onOffsetChange() {
+      const offset =
+        (this.currentRow + this.switchBar) * this.pages - this.pages;
+      this.$emit("onClick", "offset", offset);
     },
   },
   watch: {},
@@ -124,6 +173,12 @@ export default {
   background-color: #dcdcdc;
   color: black;
 }
+
+/**
+#arrowMaxBack {
+  transform: translateX(180px) rotate(360deg);
+}
+**/
 
 /**
 #back {
