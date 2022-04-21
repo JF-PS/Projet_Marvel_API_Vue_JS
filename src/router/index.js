@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import CharactersView from "../views/list/characters-view.vue";
+import ComicsView from "../views/list/comics-view.vue";
 // import HomeView from "../views/home-view.vue";
 import CharacterDetailsView from "../views/details/character-details-view.vue";
 
@@ -20,6 +21,11 @@ const routes = [
     path: "/characters/:id",
     component: CharacterDetailsView,
     props: true,
+  },
+  {
+    name: "comics",
+    path: "/comics",
+    component: ComicsView,
   },
 ];
 

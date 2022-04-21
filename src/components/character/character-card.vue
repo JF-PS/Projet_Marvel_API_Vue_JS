@@ -1,6 +1,12 @@
 <template>
   <div class="character-container" v-on:click="onClick()">
-    <div class="character-picture"><img :id="id" :src="src" :alt="name" /></div>
+    <div
+      :class="`character-picture ${
+        mode == 'heroes' ? 'heroes-size' : 'comics-size'
+      }`"
+    >
+      <img :id="id" :src="src" :alt="name" />
+    </div>
     <div class="character-name">{{ name }}</div>
   </div>
 </template>
@@ -10,6 +16,7 @@ export default {
   name: "CharacterCard",
   props: {
     character: {},
+    mode: String,
   },
   data() {
     return {
@@ -24,10 +31,14 @@ export default {
     },
   },
   mounted() {
-    const { id = null, name = "", thumbnail = {} } = this.character;
+    const { id = null, name = "", title = "", thumbnail = {} } = this.character;
     const { extension = "", path = "" } = thumbnail;
     this.id = id;
-    this.name = name;
+    const descriptionCard = name == "" ? title : name;
+    this.name =
+      descriptionCard.length > 18
+        ? `${descriptionCard.substr(0, 18)}...`
+        : descriptionCard;
     this.src = `${path}.${extension}`;
   },
 };
@@ -48,14 +59,22 @@ export default {
 .character-picture {
   border: 1px solid;
   border-radius: 10px;
-  width: 200px;
-  height: 200px;
   position: relative;
   border: 1px solid #333;
   overflow: hidden;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.heroes-size {
+  width: 200px;
+  height: 200px;
+}
+
+.comics-size {
+  width: 150px;
+  height: 200px;
 }
 
 .character-picture:hover {
@@ -76,14 +95,6 @@ export default {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-
-/**
-// font-family: 'International Super Hero', sans-serif;
-// font-family: 'International Super Hero Out', sans-serif;
-// font-family: 'International Super Hero Exp', sans-serif;
-// font-family: 'International Super Hero Cond', sans-serif;
-// font-family: 'International Super Hero Light', sans-serif;
- **/
 
 .character-name {
   font-family: "International Super Hero", sans-serif;
