@@ -22,8 +22,7 @@ const callMarvelService = async (service, params = "") => {
   );
 
   const { data: dataRequest = {} } = response;
-  const { code, data = {} } = dataRequest;
-  console.log(code);
+  const { data = {} } = dataRequest;
   return data;
 };
 

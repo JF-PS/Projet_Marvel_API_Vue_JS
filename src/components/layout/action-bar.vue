@@ -31,28 +31,37 @@
 <script>
 export default {
   name: "ActionBar",
+  props: {
+    params: Object,
+  },
   data() {
     return {
-      nameStart: "",
-      limit: 20,
-      orderBy: "name",
+      nameStart: String,
+      limit: Number,
+      orderBy: String,
     };
   },
   methods: {
-    onChange() {
-      this.$emit("onChange", this.nameStart, +this.limit, this.orderBy);
+    onChange(key, value) {
+      this.$emit("onChange", key, value);
     },
   },
   watch: {
     nameStart() {
-      this.onChange();
+      this.onChange("nameStartsWith", this.nameStart);
     },
     limit() {
-      this.onChange();
+      this.onChange("limit", this.limit);
     },
     orderBy() {
-      this.onChange();
+      this.onChange("orderBy", this.orderBy);
     },
+  },
+  mounted() {
+    const { nameStartWith, limit, orderBy } = this.params;
+    this.nameStart = nameStartWith;
+    this.limit = limit;
+    this.orderBy = orderBy;
   },
 };
 </script>

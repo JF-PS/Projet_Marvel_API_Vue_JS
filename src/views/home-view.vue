@@ -1,7 +1,7 @@
 <template>
-  <ActionBar @onChange="filterCharacters" />
-  <PaginationBar :total="total" :pages="limitRow" />
+  <ActionBar @onChange="handleChange" :params="params" />
   <CharacterList :list="list" />
+  <PaginationBar :total="total" :pages="params.limit" @onClick="handleChange" />
 </template>
 
 <script>
@@ -21,22 +21,19 @@ export default {
     return {
       list: [],
       total: 0,
-      limitRow: "20",
+      params: {
+        limit: 20,
+        nameStartsWith: null,
+        orderBy: "name",
+        offset: 0,
+      },
     };
   },
   methods: {
-    filterCharacters(nameStart, limit = 20, orderBy, offset = 0) {
-      const params = {
-        limit,
-        nameStartsWith: nameStart,
-        orderBy,
-        offset,
-      };
+    handleChange(key, value) {
+      this.params[key] = value;
 
-      this.limitRow = limit;
-      console.log(this.limitRow);
-
-      getAll("characters", params).then((response) => {
+      getAll("characters", this.params).then((response) => {
         const { results, total } = response;
         this.total = total;
         this.list = results;
@@ -44,7 +41,7 @@ export default {
     },
   },
   mounted() {
-    this.filterCharacters();
+    this.handleChange();
   },
 };
 </script>
