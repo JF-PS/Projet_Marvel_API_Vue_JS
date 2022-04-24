@@ -20,7 +20,6 @@ export default {
 
 <style>
 #app {
-  border: 5px solid orange;
   box-sizing: border-box;
   margin: 0;
   width: 100%;

@@ -18,10 +18,13 @@
       </div>
       <div class="item-action">
         <select name="order by" v-model="orderBy" class="field">
-          <option value="name">Name ASC</option>
-          <option value="modified">modified ASC</option>
-          <option value="-name">Name DESC</option>
-          <option value="-modified">modified DESC</option>
+          <option
+            v-for="(option, index) in orderOption"
+            :key="index"
+            :value="option.value"
+          >
+            {{ option.name }}
+          </option>
         </select>
       </div>
     </div>
@@ -33,6 +36,7 @@ export default {
   name: "ActionBar",
   props: {
     params: Object,
+    orderOption: [],
   },
   data() {
     return {

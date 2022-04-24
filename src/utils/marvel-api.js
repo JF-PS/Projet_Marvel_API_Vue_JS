@@ -1,6 +1,12 @@
 import axios from "axios";
 import md5 from "js-md5";
 
+const uri = process.env.VUE_APP_API_URL;
+const apikey = process.env.VUE_APP_API_KEY;
+const ts = Date.now();
+const hash = md5(ts + process.env.VUE_APP_HASH_KEY + apikey);
+const token = `apikey=${apikey}&ts=${ts}&hash=${hash}`;
+
 const getQueryParameters = (params) => {
   let filter = "";
 
@@ -11,16 +17,15 @@ const getQueryParameters = (params) => {
   return filter;
 };
 
+export const getCollectionURI = async (collectionURI) => {
+  const response = await axios.get(`${collectionURI}?${token}`);
+  const { data: dataRequest = {} } = response;
+  const { data = {} } = dataRequest;
+  return data;
+};
+
 const callMarvelService = async (service, params = "") => {
-  const uri = process.env.VUE_APP_API_URL;
-  const apikey = process.env.VUE_APP_API_KEY;
-  const ts = Date.now();
-  const hash = md5(ts + process.env.VUE_APP_HASH_KEY + apikey);
-
-  const response = await axios.get(
-    `${uri}/${service}?apikey=${apikey}&ts=${ts}&hash=${hash}${params}`
-  );
-
+  const response = await axios.get(`${uri}/${service}?${token}${params}`);
   const { data: dataRequest = {} } = response;
   const { data = {} } = dataRequest;
   return data;

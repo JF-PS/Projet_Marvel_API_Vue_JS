@@ -1,19 +1,19 @@
 <template>
-  <div class="character-container" v-on:click="onClick()">
+  <div class="item-container" v-on:click="onClick()">
     <div
-      :class="`character-picture ${
+      :class="`item-picture ${
         mode == 'heroes' ? 'heroes-size' : 'comics-size'
       }`"
     >
       <img :id="id" :src="src" :alt="name" />
     </div>
-    <div class="character-name">{{ name }}</div>
+    <div class="item-name">{{ name }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CharacterCard",
+  name: "ItemCard",
   props: {
     character: {},
     mode: String,
@@ -45,18 +45,18 @@ export default {
 </script>
 
 <style scoped>
-.character-container {
-  background-image: url("../../assets/character-background.png");
+.item-container {
+  background-color: #151515;
   cursor: pointer;
   border: 1px solid;
-  padding: 10px 10px 0px 10px;
-  border-radius: 10px;
+  padding: 5px 5px 0px 5px;
+  border-radius: 5px;
   margin: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.character-picture {
+.item-picture {
   border: 1px solid;
   border-radius: 10px;
   position: relative;
@@ -77,11 +77,11 @@ export default {
   height: 200px;
 }
 
-.character-picture:hover {
+.item-picture:hover {
   border: 1px solid white;
 }
 
-.character-picture > img {
+.item-picture > img {
   vertical-align: top;
   width: 100%;
   height: 100%;
@@ -90,17 +90,18 @@ export default {
   transition: all 0.3s;
 }
 
-.character-picture:hover img {
+.item-picture:hover img {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-.character-name {
+.item-name {
   font-family: "International Super Hero", sans-serif;
   font-size: 20px;
   width: 100%;
   text-align: center;
   padding: 10px 0px 10px 0px;
+  color: white;
 }
 </style>

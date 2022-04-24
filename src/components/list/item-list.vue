@@ -1,6 +1,6 @@
 <template>
   <div class="character-list">
-    <CharacterCard
+    <ItemCard
       v-for="item in list"
       :key="item.id"
       :character="item"
@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import CharacterCard from "./character-card";
+import ItemCard from "./item-card";
 export default {
-  name: "CharactersList",
+  name: "ItemList",
   components: {
-    CharacterCard,
+    ItemCard,
   },
   props: {
     list: Array,
@@ -25,9 +25,7 @@ export default {
 
 <style scoped>
 .character-list {
-  max-width: 70%;
   box-sizing: border-box;
-  margin: auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
