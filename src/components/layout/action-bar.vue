@@ -10,23 +10,25 @@
           class="search-bar"
         />
       </div>
-      <div class="item-action">
-        <select name="limit" v-model="limit" class="field limit-field">
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-        </select>
-      </div>
-      <div class="item-action">
-        <select name="order by" v-model="orderBy" class="field orderBy-field">
-          <option
-            v-for="(option, index) in orderOption"
-            :key="index"
-            :value="option.value"
-          >
-            {{ option.name }}
-          </option>
-        </select>
+      <div class="dropdown">
+        <div class="item-action">
+          <select name="limit" v-model="limit" class="field limit-field">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+        <div class="item-action">
+          <select name="order by" v-model="orderBy" class="field orderBy-field">
+            <option
+              v-for="(option, index) in orderOption"
+              :key="index"
+              :value="option.value"
+            >
+              {{ option.name }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
@@ -86,10 +88,16 @@ export default {
 .action-bar {
   margin: 16px 0px 16px 56px;
   height: 80px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.dropdown {
+  width: 100%;
+  justify-content: end;
   display: flex;
   flex-direction: row;
 }
-
 .search-bar {
   font-size: 16px;
   display: flex;

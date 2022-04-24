@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import CharactersView from "../views/list/characters-view.vue";
 import ComicsView from "../views/list/comics-view.vue";
-// import HomeView from "../views/home-view.vue";
+import HomeView from "../views/home/home-view.vue";
 import CharacterDetailsView from "../views/details/character-details-view.vue";
 import ComicDetailsView from "../views/details/comic-details-view.vue";
 
@@ -10,7 +10,7 @@ const routes = [
   {
     name: "home",
     path: "/",
-    component: CharactersView,
+    component: HomeView,
   },
   {
     name: "characters",

@@ -162,8 +162,6 @@ export default {
   margin-right: 16px;
   transition: 0.3s;
   color: #343a43;
-  width: 20px;
-  height: 20px;
 }
 
 .arrow:hover {

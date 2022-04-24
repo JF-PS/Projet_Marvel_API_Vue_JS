@@ -9,6 +9,10 @@
     <IconSpinner fill="#151515" height="80px" dur="1.0s" />
   </div>
   <div v-else class="main-container">
+    <div class="title-detail-page">
+      <div class="line"></div>
+      <h2>Find all Marvel's movies</h2>
+    </div>
     <div class="listContainer"><ItemList :list="list" mode="comics" /></div>
     <PaginationBar
       :total="total"
@@ -82,5 +86,29 @@ export default {
 
 .main-container {
   grid-area: content;
+}
+
+.title-detail-page {
+  display: grid;
+  grid-template-areas: "line title";
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+.line {
+  grid-area: line;
+  height: 3px;
+  margin-right: 24px;
+  background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+}
+
+h2 {
+  grid-area: title;
+  text-align: center;
+  position: relative;
+  max-width: 750px;
+  justify-self: start;
+  color:#343a43;
 }
 </style>
