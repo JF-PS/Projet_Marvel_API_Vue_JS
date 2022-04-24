@@ -4,6 +4,7 @@ import CharactersView from "../views/list/characters-view.vue";
 import ComicsView from "../views/list/comics-view.vue";
 // import HomeView from "../views/home-view.vue";
 import CharacterDetailsView from "../views/details/character-details-view.vue";
+import ComicDetailsView from "../views/details/comic-details-view.vue";
 
 const routes = [
   {
@@ -26,6 +27,12 @@ const routes = [
     name: "comics",
     path: "/comics",
     component: ComicsView,
+  },
+  {
+    name: "comics",
+    path: "/comics/:id",
+    component: ComicDetailsView,
+    props: true,
   },
 ];
 

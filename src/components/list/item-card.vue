@@ -2,7 +2,7 @@
   <div class="card" v-on:click="onClick()">
     <div
       :class="`item-picture ${
-        mode == 'heroes' ? 'heroes-size' : 'comics-size'
+        mode == 'characters' ? 'heroes-size' : 'comics-size'
       }`"
     >
       <img :id="id" :src="src" :alt="name" />
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     onClick() {
-      this.$router.push(`/characters/${this.id}`);
+      this.$router.push(`/${this.mode}/${this.id}`);
     },
   },
   mounted() {

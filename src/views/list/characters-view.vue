@@ -8,7 +8,7 @@
     <IconSpinner fill="#151515" height="80px" dur="1.0s" />
   </div>
   <div v-else class="main-container">
-    <div class="listContainer"><ItemList :list="list" mode="heroes" /></div>
+    <div class="listContainer"><ItemList :list="list" mode="characters" /></div>
     <PaginationBar
       :total="total"
       :pages="params.limit"
