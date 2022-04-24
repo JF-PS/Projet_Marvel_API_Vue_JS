@@ -77,11 +77,7 @@ export default {
   justify-content: center;
 }
 
-/*.main-container {
-  min-height: 70vh;
+.main-container {
+  grid-area: content;
 }
-.listContainer {
-  margin: auto;
-  max-width: 70%;
-}*/
 </style>

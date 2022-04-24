@@ -10,14 +10,15 @@ export default {
 
 <style scoped>
 .footer-bar {
+  grid-area: footer;
   height: 60px;
   width: 100%;
-  background-color: #343a43;
+  background-color: #242020;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "International Super Hero", sans-serif;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
 }
 </style>

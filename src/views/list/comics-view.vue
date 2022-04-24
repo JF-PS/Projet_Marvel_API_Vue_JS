@@ -54,7 +54,9 @@ export default {
   },
   methods: {
     handleChange(key, value) {
-      this.params[key === "startWith" ? "titleStartsWith" : key] = value;
+      // this.params[key === "startWith" ? "titleStartsWith" : key] = value;
+      console.log('==================================');
+      this.params[key] = value;
 
       getAll("comics", this.params).then((response) => {
         const { results, total } = response;
@@ -78,11 +80,7 @@ export default {
   justify-content: center;
 }
 
-/*.main-container {
-  min-height: 70vh;
+.main-container {
+  grid-area: content;
 }
-.listContainer {
-  margin: auto;
-  max-width: 70%;
-}*/
 </style>

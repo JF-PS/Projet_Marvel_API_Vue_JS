@@ -5,19 +5,20 @@
         <input
           type="text"
           name="search"
-          v-model="startWith"
-          placeholder="name start.."
+          v-model="nameWith"
+          placeholder="Search by name"
+          class="search-bar"
         />
       </div>
       <div class="item-action">
-        <select name="limit" v-model="limit" class="field">
+        <select name="limit" v-model="limit" class="field limit-field">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
         </select>
       </div>
       <div class="item-action">
-        <select name="order by" v-model="orderBy" class="field">
+        <select name="order by" v-model="orderBy" class="field orderBy-field">
           <option
             v-for="(option, index) in orderOption"
             :key="index"
@@ -76,37 +77,58 @@ export default {
 
 <style scoped>
 .bar-container {
-  background-color: #242020;
+  grid-area: ActionBar;
   top: 60px;
   position: sticky;
   z-index: 1001;
+  background-color: #FBFCFA;
 }
 .action-bar {
-  margin: auto;
-  max-width: 70%;
-  height: 40px;
-  width: 100%;
+  margin: 16px 0px 16px 56px;
+  height: 80px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+}
+
+.search-bar {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 250px;
+  margin: auto;
+  position: relative;
+  padding: 0px 16px;
+  color: #8F8F8F;
+  background-clip: padding-box;
+  border-radius: 50px;
+  border-color: orange;
 }
 
 .item-action {
-  width: 100%;
-  height: 100%;
-  font-family: "International Super Hero", sans-serif;
   color: white;
   font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+  margin-right: 40px;
 }
 
-.item-action:hover {
-  font-family: "International Super Hero", sans-serif;
-  color: orange;
-  font-size: 30px;
-  cursor: pointer;
+.field {
+  height: 40px;
+  border-radius: 8px;
+  box-shadow: -4px 4px 30px rgba(112, 112, 112, 0.3);
+  padding: 0px 16px;
+  border: none;
 }
+
+.limit-field {
+  width: 120px;
+}
+
+.orderBy-field {
+  width: 250px;
+}
+
 </style>

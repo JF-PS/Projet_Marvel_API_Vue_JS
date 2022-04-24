@@ -21,17 +21,18 @@ export default {
 
 <style scoped>
 .app-bar {
+  grid-area: AppBar;
   height: 200px;
-  border: 1px solid;
   background-image: url("../../assets/nav-bar-background.png");
 }
 .nav-bar {
+  grid-area: Menu;
   z-index: 1000;
   top: 0;
   position: sticky;
   height: 60px;
   width: 100%;
-  background-color: #343a43;
+  background-color: #242020;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -54,5 +55,9 @@ export default {
   color: orange;
   font-size: 30px;
   cursor: pointer;
+}
+
+.item-bar:focus {
+  color: orange;
 }
 </style>

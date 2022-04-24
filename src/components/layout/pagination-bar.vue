@@ -113,46 +113,45 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 32px 40px 32px 0px;
 }
 
 .pagination-item {
   border: none;
   padding: 10px;
-  background-color: white;
+  background-color: #dcdcdc;
   border-radius: 50px;
   cursor: pointer;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   margin-right: 16px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
-  transition: 0.3s;
+  /* transition: 0.3s; */
 }
 
 .pagination-item-selected {
-  border: 1px solid black;
+  border: none;
   padding: 10px;
   background-color: orange;
-  color: white;
   border-radius: 50px;
   cursor: pointer;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   margin-right: 16px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
+  color: white;
 }
 
 .pagination-item:hover {
-  background-color: orange;
+  background-color: #bbbbbb;
   color: white;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .arrow {
@@ -160,20 +159,25 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #a9a9a9;
-  width: 40px;
-  height: 40px;
   margin-right: 16px;
-  border-radius: 10px;
   transition: 0.3s;
-  color: white;
+  color: #343a43;
+  width: 20px;
+  height: 20px;
 }
 
 .arrow:hover {
-  background-color: #dcdcdc;
-  color: black;
+  background-color: grey;
+  color: white;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
 }
 
+.material-symbols-outlined {
+  font-size: 18px;
+}
 /**
 #arrowMaxBack {
   transform: translateX(180px) rotate(360deg);

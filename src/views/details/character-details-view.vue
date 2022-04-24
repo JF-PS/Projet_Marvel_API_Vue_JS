@@ -13,10 +13,13 @@
             }}
           </div>
         </div>
-        <div id="picture-side" :style="src"></div>
+        <div :style="src"></div>
       </div>
 
-      <h2>Comics with {{ name }}</h2>
+      <div class="title-detail-page">
+        <div class="line"></div>
+        <h2>Comics with {{ name }}</h2>
+      </div>
       <div>
         <ItemList :list="comicsList" mode="comics" />
       </div>
@@ -30,8 +33,8 @@ import ItemList from "../../components/list/item-list";
 import IconSpinner from "../../components/IconSpinner";
 
 //  <div id="picture-container">
-//       <img class="img-detail" :src="src" :alt="name" />
-//     </div>
+//    <img class="img-detail" :src="src" :alt="name" />
+//  </div>
 
 export default {
   name: "CharacterDetailsView",
@@ -63,7 +66,7 @@ export default {
       const { extension = "", path = "" } = thumbnail;
       this.name = name;
       this.description = description;
-      this.src = `background-image: url(${path}.${extension}); background-repeat: no-repeat;`;
+      this.src = `background-image: url(${path}.${extension}); background-repeat: no-repeat; background-size: cover;`;
       this.loading = false;
 
       // We recover the comics where the character appeared
@@ -79,7 +82,7 @@ export default {
 
 <style scoped>
 #container {
-  background-color: white;
+  background-color: #FBFCFA;
 }
 
 .loading-item {
@@ -90,19 +93,19 @@ export default {
 }
 
 .main-detail-container {
-  min-height: 70vh;
+  min-height: 100%;
   margin: auto;
 }
 .character-details-container {
   border-radius: 100% 0% 100% 0% / 0% 73% 27% 100%;
   width: 100%;
-  height: 60vh;
+  height: 59vh;
   margin-bottom: 20px;
-  background-color: #202020;
+  background-color: hsl(220, 3%, 20%);
+  /* background-color: #343a43; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
-  justify-items: start | end;
 }
 
 #picture-container {
@@ -123,7 +126,7 @@ export default {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin-left: 32px;
+  margin: 0px 32px;
 }
 
 #title {
@@ -131,36 +134,44 @@ export default {
   font-size: 40px;
   width: 100%;
   margin-bottom: 30px;
-  color: white;
   text-transform: uppercase;
+  background: linear-gradient(90deg, rgba(253,29,29,0.9) 0%, rgba(252,176,69,1) 61%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 #description {
-  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
   width: 100%;
   color: white;
+  line-height: 1.5;
+}
+
+.title-detail-page {
+  display: grid;
+  grid-template-areas: "line title";
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+.line {
+  grid-area: line;
+  height: 4px;
+  margin-right: 24px;
+  background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1)
+100%);
 }
 
 h2 {
-  margin: 100px 0px 0px 0px;
+  grid-area: title;
   text-align: center;
   position: relative;
   max-width: 750px;
-  justify-content: start;
+  justify-self: start;
+  color:#343a43;
 }
 
-h2:before {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 3px;
-  background: orange;
-  position: absolute;
-  left: 0;
-  top: 50%;
-}
-
-/**#picture-side {
-  justify-self: end;
-}**/
 </style>

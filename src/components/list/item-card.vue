@@ -46,13 +46,16 @@ export default {
 
 <style scoped>
 .card {
-  background-color: #151515;
+  background-color: #242020;
   cursor: pointer;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   height: 300px;
+  width: 210px;
+  box-shadow: -5px 15px 25px rgba(112, 112, 112, 0.4);
+  justify-self: center;
 }
 
 .item-picture {
@@ -61,16 +64,19 @@ export default {
 }
 
 .heroes-size {
-  height: 220px;
+  height: 300px;
+  width: 270px;
 }
 
 .comics-size {
-  height: 220px;
+  width: 210px;
+  height: 370px;
 }
 
 .item-picture > img {
   width: 100%;
   height: 100%;
+  margin: auto;
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
