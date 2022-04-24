@@ -11,7 +11,7 @@
     <div class="listContainer"><ItemList :list="list" mode="characters" /></div>
     <PaginationBar
       :total="total"
-      :pages="params.limit"
+      :limitePages="params.limit"
       @onClick="handleChange"
     />
   </div>
@@ -38,9 +38,9 @@ export default {
       total: 0,
       params: {
         limit: 20,
-        nameStartsWith: null,
-        orderBy: "name",
         offset: 0,
+        orderBy: "name",
+        nameStartsWith: null,
       },
       orderOption: [
         { name: "Name ASC", value: "name" },
@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     handleChange(key, value) {
-      this.params[key] = value;
+      this.params[key === "startWith" ? "nameStartsWith" : key] = value;
 
       getAll("characters", this.params).then((response) => {
         const { results, total } = response;

@@ -50,14 +50,14 @@ export default {
   },
   props: {
     total: Number,
-    pages: Number,
+    limitePages: Number,
   },
   computed: {
     limit() {
       let myLimit = 5;
 
       for (let i = myLimit; i >= 1; --i) {
-        if (i * this.pages > this.total) {
+        if (i * this.limitePages > this.total) {
           myLimit = i;
         }
       }
@@ -66,7 +66,6 @@ export default {
     },
     isNext() {
       let stop = false;
-      console.log(this.limit);
       if (this.limit < 5) stop = true;
       return stop;
     },
@@ -85,7 +84,7 @@ export default {
     onClickUltimeNext() {
       this.currentRow = 5;
       this.switchBar = parseInt(this.total / 20) - this.limit;
-      this.$emit("onClick", "offset", this.total - this.pages);
+      this.$emit("onClick", "offset", this.total - this.limitePages);
     },
     onClickUltimeBack() {
       this.currentRow = 1;
@@ -100,7 +99,8 @@ export default {
     },
     onOffsetChange() {
       const offset =
-        (this.currentRow + this.switchBar) * this.pages - this.pages;
+        (this.currentRow + this.switchBar) * this.limitePages -
+        this.limitePages;
       this.$emit("onClick", "offset", offset);
     },
   },

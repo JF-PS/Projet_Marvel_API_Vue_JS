@@ -29,7 +29,7 @@ const routes = [
     component: ComicsView,
   },
   {
-    name: "comics",
+    name: "comic",
     path: "/comics/:id",
     component: ComicDetailsView,
     props: true,

@@ -4,10 +4,6 @@
     <div class="item-bar" @click="onClick('home')">Home</div>
     <div class="item-bar" @click="onClick('characters')">Character</div>
     <div class="item-bar" @click="onClick('comics')">Comic</div>
-    <div class="item-bar" @click="onClick('series')">Series</div>
-    <div class="item-bar" @click="onClick('events')">Events</div>
-    <div class="item-bar" @click="onClick('creators')">Creators</div>
-    <div class="item-bar" @click="onClick('stories')">Stories</div>
     <div class="item-bar" @click="onClick('about')">About</div>
   </div>
 </template>

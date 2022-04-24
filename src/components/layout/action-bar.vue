@@ -5,7 +5,7 @@
         <input
           type="text"
           name="search"
-          v-model="nameStart"
+          v-model="startWith"
           placeholder="name start.."
         />
       </div>
@@ -32,15 +32,16 @@
 </template>
 
 <script>
+import { debounce } from "lodash";
 export default {
   name: "ActionBar",
   props: {
     params: Object,
-    orderOption: [],
+    orderOption: Array,
   },
   data() {
     return {
-      nameStart: String,
+      startWith: String,
       limit: Number,
       orderBy: String,
     };
@@ -49,21 +50,24 @@ export default {
     onChange(key, value) {
       this.$emit("onChange", key, value);
     },
+    debouceFilterNameStart: debounce((onChange, startWith) => {
+      onChange("startWith", startWith);
+    }, 500),
   },
   watch: {
-    nameStart() {
-      this.onChange("nameStartsWith", this.nameStart);
+    startWith() {
+      this.debouceFilterNameStart(this.onChange, this.startWith);
     },
     limit() {
-      this.onChange("limit", this.limit);
+      this.onChange("limit", +this.limit);
     },
     orderBy() {
       this.onChange("orderBy", this.orderBy);
     },
   },
   mounted() {
-    const { nameStartWith, limit, orderBy } = this.params;
-    this.nameStart = nameStartWith;
+    const { startWithWith, limit, orderBy } = this.params;
+    this.startWith = startWithWith;
     this.limit = limit;
     this.orderBy = orderBy;
   },

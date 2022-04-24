@@ -12,7 +12,7 @@
     <div class="listContainer"><ItemList :list="list" mode="comics" /></div>
     <PaginationBar
       :total="total"
-      :pages="params.limit"
+      :limitePages="params.limit"
       @onClick="handleChange"
     />
   </div>
@@ -41,6 +41,7 @@ export default {
         limit: 20,
         offset: 0,
         orderBy: "title",
+        titleStartsWith: null,
       },
       orderOption: [
         { name: "FocDate", value: "focDate" },
@@ -53,7 +54,7 @@ export default {
   },
   methods: {
     handleChange(key, value) {
-      this.params[key] = value;
+      this.params[key === "startWith" ? "titleStartsWith" : key] = value;
 
       getAll("comics", this.params).then((response) => {
         const { results, total } = response;
