@@ -25,20 +25,13 @@ export default {
 
 <style scoped>
 .character-list {
-  /*box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  overflow-y: scroll;*/
-
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-gap: 50px;
   row-gap: 40px;
   margin: 60px auto 0;
   max-width: 100%;
-  padding: 24px;
+  padding: 32px;
 }
 
 .character-list::-webkit-scrollbar {

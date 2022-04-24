@@ -1,5 +1,5 @@
 <template>
-  <div class="item-container" v-on:click="onClick()">
+  <div class="card" v-on:click="onClick()">
     <div
       :class="`item-picture ${
         mode == 'heroes' ? 'heroes-size' : 'comics-size'
@@ -45,44 +45,30 @@ export default {
 </script>
 
 <style scoped>
-.item-container {
+.card {
   background-color: #151515;
   cursor: pointer;
-  border: 1px solid;
-  padding: 5px 5px 0px 5px;
   border-radius: 5px;
-  margin: 10px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  height: 300px;
 }
 
 .item-picture {
-  border: 1px solid;
-  border-radius: 10px;
   position: relative;
-  border: 1px solid #333;
   overflow: hidden;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .heroes-size {
-  width: 200px;
-  height: 200px;
+  height: 220px;
 }
 
 .comics-size {
-  width: 150px;
-  height: 200px;
-}
-
-.item-picture:hover {
-  border: 1px solid white;
+  height: 220px;
 }
 
 .item-picture > img {
-  vertical-align: top;
   width: 100%;
   height: 100%;
   -moz-transition: all 0.3s;
@@ -99,9 +85,10 @@ export default {
 .item-name {
   font-family: "International Super Hero", sans-serif;
   font-size: 20px;
-  width: 100%;
-  text-align: center;
-  padding: 10px 0px 10px 0px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
 }
 </style>

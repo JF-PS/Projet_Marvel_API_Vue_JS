@@ -77,11 +77,11 @@ export default {
   justify-content: center;
 }
 
-.main-container {
+/*.main-container {
   min-height: 70vh;
 }
 .listContainer {
   margin: auto;
   max-width: 70%;
-}
+}*/
 </style>
