@@ -35,7 +35,7 @@ export default {
                       "content"
                       "footer";
   grid-template-rows: auto auto auto 1fr 60px;
-  /* height: 100vh; */
+  min-height: 100vh;
 }
 
 .content {
