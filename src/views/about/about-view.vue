@@ -1,8 +1,5 @@
 <template>
-  <div v-if="loading" class="main-container loading-item">
-    <IconSpinner fill="#151515" height="80px" dur="1.0s" />
-  </div>
-  <div v-else class="main-container">
+  <div class="main-container">
     <div class="title-section">
       <div class="line"></div>
       <h2>Notre groupe</h2>
@@ -18,7 +15,7 @@
       <h2>Objectifs</h2>
     </div>
     <div class="text-section">
-      <p>Via l’API de Marvel, nous devions créer une interface permettant de naviguer parmi différents comics ou héros de la licence. Les pages où sont listées ces derniers devaient contenir un système de pagination, un système de recherche et de filtre.</p>
+      <p>Via l’API de Marvel, nous devions créer une interface permettant de naviguer parmi différents comics ou héros de la licence. Les pages où sont listées ces derniers devaient contenir un système de pagination et un système de recherche.</p>
 
       <p>Plus, ces listes se devaient d'être cliquables et nous rediriger vers les pages détails.</p>
 
@@ -45,14 +42,9 @@
 </template>
 
 <script>
-import IconSpinner from "../../components/IconSpinner";
 
 export default {
   name: "AboutView",
-
-  components: {
-    IconSpinner,
-  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div id="AppBox">
     <AppBar />
-    <router-view class="content"></router-view>
+    <router-view></router-view>
     <FooterBar />
   </div>
 </template>

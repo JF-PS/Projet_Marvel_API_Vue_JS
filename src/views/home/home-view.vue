@@ -1,8 +1,5 @@
 <template>
-  <div v-if="loading" class="main-container loading-item">
-    <IconSpinner fill="#151515" height="80px" dur="1.0s" />
-  </div>
-  <div v-else class="main-container">
+  <div class="main-container">
     <div class="characters-part">
       <div class="info-characters">
         <h2>Characters</h2>
@@ -24,7 +21,6 @@
 </template>
 
 <script>
-import IconSpinner from "../../components/IconSpinner";
 
 export default {
   name: "HomeView",
@@ -33,20 +29,10 @@ export default {
       this.$router.push(`/${service}`);
     },
   },
-  components: {
-    IconSpinner,
-  },
 };
 </script>
 
 <style scoped>
-.loading-item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .main-container {
   grid-area: content;
 }

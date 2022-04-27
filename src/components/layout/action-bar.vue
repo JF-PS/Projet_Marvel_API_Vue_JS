@@ -5,7 +5,7 @@
         <input
           type="text"
           name="search"
-          v-model="nameWith"
+          v-model="startWith"
           placeholder="Search by name"
           class="search-bar"
         />
