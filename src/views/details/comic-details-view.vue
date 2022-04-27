@@ -18,7 +18,7 @@
 
       <div class="title-detail-page">
         <div class="line"></div>
-        <h2>Comics with {{ name }}</h2>
+        <h2>Characters in {{ name }}</h2>
       </div>
       <div>
         <ItemList :list="comicsList" mode="characters" />
@@ -164,7 +164,7 @@ h2 {
   grid-area: title;
   text-align: center;
   position: relative;
-  max-width: 750px;
+  max-width: 100%;
   justify-self: start;
   color:#343a43;
 }

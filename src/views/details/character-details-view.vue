@@ -169,7 +169,7 @@ h2 {
   grid-area: title;
   text-align: center;
   position: relative;
-  max-width: 750px;
+  max-width: 100%;
   justify-self: start;
   color:#343a43;
 }
