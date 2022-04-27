@@ -27,10 +27,6 @@ export default {
   background-color: #FBFCFA;
 }
 
-/* #AppBox {
-  background-image: url("./assets/projet-background.png");
-} */
-
 #AppBox {
   display: grid;
   grid-template-areas: "AppBar"

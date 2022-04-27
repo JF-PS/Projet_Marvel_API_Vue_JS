@@ -1,9 +1,9 @@
 <template>
   <div class="app-bar"></div>
   <div class="nav-bar">
-    <div class="item-bar" @click="onClick('home')">Home</div>
-    <div class="item-bar" @click="onClick('characters')">Character</div>
-    <div class="item-bar" @click="onClick('comics')">Comic</div>
+    <div class="item-bar" @click="onClick('')">Home</div>
+    <div class="item-bar" @click="onClick('characters')">Characters</div>
+    <div class="item-bar" @click="onClick('comics')">Comics</div>
     <div class="item-bar" @click="onClick('about')">About</div>
   </div>
 </template>

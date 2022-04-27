@@ -9,7 +9,7 @@
         </span>
       </div>
       <div class="arrow" v-if="switchBar > 0">
-        <span id="back" class="material-symbols-outlined" @click="onClickBack">
+        <span class="material-symbols-outlined" @click="onClickBack">
           arrow_back_ios
         </span>
       </div>
@@ -176,15 +176,10 @@ export default {
 .material-symbols-outlined {
   font-size: 18px;
 }
-/**
-#arrowMaxBack {
-  transform: translateX(180px) rotate(360deg);
-}
-**/
 
-/**
-#back {
-  border: 1px solid black;
+#arrowMaxBack {
+  transform: rotate(180deg);
 }
-**/
+
+
 </style>

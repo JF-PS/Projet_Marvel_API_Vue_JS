@@ -1,5 +1,7 @@
 <template>
-  <div class="footer-bar">Data provided by Marvel. © 2022 MARVEL</div>
+  <div class="footer-bar">
+    <p>Data provided by Marvel. © 2022 MARVEL</p>
+  </div>
 </template>
 
 <script>
@@ -15,10 +17,14 @@ export default {
   width: 100%;
   background-color: #242020;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
+}
+
+p {
   font-family: "International Super Hero", sans-serif;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
+  padding-right: 32px;
 }
 </style>

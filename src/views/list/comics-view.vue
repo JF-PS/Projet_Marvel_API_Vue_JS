@@ -11,7 +11,7 @@
   <div v-else class="main-container">
     <div class="title-detail-page">
       <div class="line"></div>
-      <h2>Find all Marvel's movies</h2>
+      <h2>Find all Marvel's comics</h2>
     </div>
     <div class="listContainer"><ItemList :list="list" mode="comics" /></div>
     <PaginationBar

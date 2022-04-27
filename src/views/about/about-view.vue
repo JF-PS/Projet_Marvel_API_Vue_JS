@@ -6,7 +6,11 @@
     <div class="characters-part">
       <div class="info-characters">
         <h2>Characters</h2>
-        <p>Find the list of all the characters of the Marvel universe. For more informations don't hesitate to click on the card of your favorite character.</p>
+        <p>
+          Find the list of all the characters of the Marvel universe. For more
+          informations don't hesitate to click on the card of your favorite
+          character.
+        </p>
         <button @click="onClick('characters')">En découvrir plus</button>
       </div>
       <div class="characters-img"></div>
@@ -16,7 +20,11 @@
       <div class="comics-img"></div>
       <div class="info-comics">
         <h2>Comics</h2>
-        <p>Find the list of all the comics of the Marvel universe. And for more informations don't hesitate to click on the card of the comic that you unknown.</p>
+        <p>
+          Find the list of all the comics of the Marvel universe. And for more
+          informations don't hesitate to click on the card of the comic that you
+          unknown.
+        </p>
         <button @click="onClick('comics')">En découvrir plus</button>
       </div>
     </div>
@@ -27,8 +35,8 @@
 import IconSpinner from "../../components/IconSpinner";
 
 export default {
-  name: "HomeView",
-   methods: {
+  name: "AboutView",
+  methods: {
     onClick(service) {
       this.$router.push(`/${service}`);
     },
@@ -65,14 +73,14 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding:24px 0px 24px 32px;
+  padding: 24px 0px 24px 32px;
 }
 
 .info-comics {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding:24px 32px 24px 0px;
+  padding: 24px 32px 24px 0px;
 }
 
 h2 {
@@ -81,7 +89,11 @@ h2 {
   width: 100%;
   margin-bottom: 0px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, rgba(253,29,29,0.9) 0%, rgba(252,176,69,1) 61%);
+  background: linear-gradient(
+    90deg,
+    rgba(253, 29, 29, 0.9) 0%,
+    rgba(252, 176, 69, 1) 61%
+  );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -119,11 +131,15 @@ button::before {
   transition-property: transform;
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
-  background: linear-gradient(100deg, rgba(253,29,29,0.9) 0%, rgba(252,176,69,1) 61%);
+  background: linear-gradient(
+    100deg,
+    rgba(253, 29, 29, 0.9) 0%,
+    rgba(252, 176, 69, 1) 61%
+  );
 }
 
 button:hover {
-border: 2px solid white;
+  border: 2px solid white;
   color: whitesmoke;
 }
 
@@ -132,8 +148,12 @@ button:hover::before {
 }
 .characters-img {
   clip-path: polygon(40% 0, 100% 0%, 100% 100%, 0 100%);
-  background-image:linear-gradient(rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("../../assets/home-movie.jpg") ;
-  background-repeat:no-repeat;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../../assets/home-movie.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 60vh;
@@ -142,8 +162,12 @@ button:hover::before {
 
 .comics-img {
   clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
-  background-image: linear-gradient(rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("../../assets/home-comic.jpg");
-  background-repeat:no-repeat;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url("../../assets/home-comic.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
   width: 100%;
